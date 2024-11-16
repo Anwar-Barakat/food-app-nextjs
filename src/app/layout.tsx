@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Header } from "@/components/header";
 import { auth } from "@clerk/nextjs/server";
+import Image from "next/image";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,19 +22,25 @@ export const metadata: Metadata = {
   description: "Foodies is a food blog that shares recipes and cooking tips.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
 
-  const {userId} = auth();
+  const { userId } = await auth();
 
   return (
     <ClerkProvider>
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <Header userId={userId}/>
+          <Image src={`/images/home/hero.svg`}
+            alt="container"
+            className='absolute -z-10 top-0 right-0 w-full md:w-[60%]'
+            width={500}
+            height={500}
+          />
+          <Header userId={userId} />
           {children}
         </body>
       </html>

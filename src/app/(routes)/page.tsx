@@ -6,7 +6,7 @@ const HomePage = () => {
         <>
             <Container className='px-4 md:px-12'>
                 <section>
-                    
+                    hello
                 </section>
             </Container>
         </>
