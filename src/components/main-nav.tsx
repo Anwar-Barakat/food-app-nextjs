@@ -52,7 +52,7 @@ export const MainNav = (
         className
       )}>
 
-        {routes.map((route, index) => (
+        {routes.map((route) => (
           <Link key={route.href}
             href={route.href}
             className={cn('text-neutral-700 hover:text-neutral-900 hover:text-primary',
