@@ -21,14 +21,15 @@ export const metadata: Metadata = {
   description: "Foodies is a food blog that shares recipes and cooking tips.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
 
-  const {userId} = auth();
-
+  // Fetch the session asynchronously
+  const { userId } = await auth();
+ 
   return (
     <ClerkProvider>
       <html lang="en">
