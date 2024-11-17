@@ -1,9 +1,12 @@
 import getProducts from '@/actions/get-products'
 import Container from '@/components/container'
+import { PopularCard } from '@/components/popular-card'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+
+export const revalidate = 0;
 
 const HomePage = async () => {
     const products = await getProducts({
@@ -48,6 +51,15 @@ const HomePage = async () => {
                         />
                     </div>
                 </section>
+
+                <section className='grid grid-cols-1 md:grid-cols-4 gap-6 gap-y-20 md:gap-12 my-4 py-12'>
+                    {
+                        products?.slice(0,4).map((product, index) => (
+                            <PopularCard key={index} product={product} />
+                        ))
+                    }
+                </section>
+
             </Container>
         </>
     )
