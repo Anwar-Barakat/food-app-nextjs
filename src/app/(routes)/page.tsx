@@ -60,6 +60,17 @@ const HomePage = async () => {
                     }
                 </section>
 
+                <section className='flex flex-col items-center justify-center my-12 py-12'>
+                    <h2 className='text-5xl font-bold tracking-wider uppercase text-neutral-700 my-4'>
+                        why choose us?
+                    </h2>
+                    <p className='w-full text-center md:max-w-[560px] text-base text-neutral-500 my-2'>
+                        Foodies is a food blog that shares recipes and cooking tips. Foodies is a food blog that shares recipes and cooking tips.
+                    </p>
+
+                    <div className='grid grid-cols-1 md:grid-cols-3 gap-8 w-full my-6 mt-12'>
+                    </div>
+                </section>
             </Container>
         </>
     )
