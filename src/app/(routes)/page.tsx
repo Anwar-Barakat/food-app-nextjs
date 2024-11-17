@@ -1,10 +1,15 @@
+import getProducts from '@/actions/get-products'
 import Container from '@/components/container'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const HomePage = () => {
+const HomePage = async () => {
+    const products = await getProducts({
+        isFeatured: true,
+    })
+    console.log(products)
     return (
         <>
             <Container className='px-4 md:px-12'>

@@ -1,5 +1,6 @@
 import { Product } from "@/models/product";
-import qs from "query-string";
+import qs from 'query-string';
+
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
@@ -9,7 +10,7 @@ interface Query {
     cuisine?: string;
     category?: string;
     kitchen?: string;
-}
+  }
 
 const getProducts = async (query: Query): Promise<Product[]> => {
     const url = qs.stringifyUrl({
@@ -26,7 +27,7 @@ const getProducts = async (query: Query): Promise<Product[]> => {
     const response = await fetch(url);
 
     if (!response.ok) {
-        throw new Error(response.statusText);
+        throw new Error('An error occurred while trying to fetch the products');
     }
 
     return response.json();
