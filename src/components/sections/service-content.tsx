@@ -1,6 +1,6 @@
 import { CalendarCheck2, Truck, Utensils } from 'lucide-react'
 import React from 'react'
-import { ServiceCard } from '@/components/service-card'
+import { ServiceCard } from '@/components/cards/service-card'
 
 export const ServiceSection = () => {
   return (
