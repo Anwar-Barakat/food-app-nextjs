@@ -6,13 +6,12 @@ import { useParams, usePathname } from "next/navigation";
 
 interface MainNavProps extends React.HTMLAttributes<HTMLDivElement> {
   scrolled: boolean
-
 }
 
 
 
 export const MainNav = (
-  { className, scrolled, ...props }: MainNavProps
+  { className, scrolled }: MainNavProps
 ) => {
 
   const pathname = usePathname();
@@ -48,19 +47,19 @@ export const MainNav = (
 
   return (
     <div className="ml-auto">
-      <nav className={cn('flex items-center space-x-4 lg:space-x-12 pl-6',className)}>
+      <nav className={cn('flex items-center space-x-4 lg:space-x-12 pl-6', className)}>
         {
           routes.map((route) => {
-            return <Link 
-            key={route.href}
-             href={route.href}
-              className={cn('text-base font-medium transition-colors hover:text-primary', route.active ? 
+            return <Link
+              key={route.href}
+              href={route.href}
+              className={cn('text-base font-medium transition-colors hover:text-primary', route.active ?
                 `${scrolled ? "text-hero font-bold" : "text-black dark:text-white"}`
-                : 
+                :
                 `${scrolled ? "text-black dark:text-white" : "text-white"}`
               )}>
               {route.label}
-              </Link>
+            </Link>
           })
         }
       </nav>
