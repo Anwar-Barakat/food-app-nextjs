@@ -3,6 +3,8 @@ import Container from "@/components/container";
 import { MenuContent } from "@/components/menu-content";
 import { FilterContainer, MenuSidebar } from "@/app/(routes)/menu/_components/filter-container";
 import { CategoryFilter } from "./_components/category-filter";
+import getSizes from "@/actions/get-sizes";
+import { SizeFilter } from "./_components/size-filter";
 
 interface MenuPageProps {
     searchParams: {
@@ -19,16 +21,15 @@ const MenuPage = async (
 ) => {
 
     const categories = await getCategories();
+    const sizes = await getSizes();
 
     return (
         <Container className="px-4 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-12 py-12 gap-2">
                 <div className="hidden md:block col-span-2 border-r border-gray-100 top-24">
                     <FilterContainer>
-                        <CategoryFilter
-                            categories={categories}
-
-                        />
+                        <CategoryFilter categories={categories} />
+                        <SizeFilter sizes={sizes} />
                     </FilterContainer>
                 </div>
 
