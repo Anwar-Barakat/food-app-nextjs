@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Header } from "@/components/header";
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
+import { Footer } from "@/components/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -43,6 +44,7 @@ export default async function RootLayout({
           />
           <Header userId={userId} />
           {children}
+          <Footer />
         </body>
       </html>
     </ClerkProvider>
