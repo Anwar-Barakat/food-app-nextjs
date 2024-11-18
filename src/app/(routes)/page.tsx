@@ -1,6 +1,8 @@
 import getProducts from '@/actions/get-products'
 import Container from '@/components/container'
-import { PopularCard } from '@/components/popular-card'
+import { HeaderSection } from '@/components/header-section'
+import { ProductCard } from '@/components/product-card'
+import { ServiceSection } from '@/components/service-content'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -54,19 +56,19 @@ const HomePage = async () => {
 
                 <section className='grid grid-cols-1 md:grid-cols-4 gap-6 gap-y-20 md:gap-12 my-4 py-12'>
                     {
-                        products?.slice(0,4).map((product, index) => (
-                            <PopularCard key={index} product={product} />
+                        products?.slice(0, 4).map((product, index) => (
+                            <ProductCard key={index} product={product} />
                         ))
                     }
                 </section>
 
                 <section className='flex flex-col items-center justify-center my-12 py-12'>
-                    <h2 className='text-5xl font-bold tracking-wider uppercase text-neutral-700 my-4'>
-                        why choose us?
-                    </h2>
-                    <p className='w-full text-center md:max-w-[560px] text-base text-neutral-500 my-2'>
-                        Foodies is a food blog that shares recipes and cooking tips. Foodies is a food blog that shares recipes and cooking tips.
-                    </p>
+                    <HeaderSection
+                        title="why choose us?"
+                        description='Foodies is a food blog that shares recipes and cooking tips. Foodies is a food blog that shares recipes and cooking tips.'
+                    />
+
+                    <ServiceSection />
 
                     <div className='grid grid-cols-1 md:grid-cols-3 gap-8 w-full my-6 mt-12'>
                     </div>

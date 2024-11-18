@@ -8,11 +8,11 @@ import { Button } from "@/components/ui/button";
 import { Heart, HeartCrackIcon, ShoppingCartIcon } from "lucide-react";
 import React from "react";
 
-interface PopularContentProps {
+interface ProductContentProps {
   product: Product
 }
 
-export const PopularCard = ({ product }: PopularContentProps) => {
+export const ProductCard = ({ product }: ProductContentProps) => {
   const [isLiked, setIsLiked] = React.useState(false)
 
   const isLikedIcon = isLiked ? Heart : HeartCrackIcon
