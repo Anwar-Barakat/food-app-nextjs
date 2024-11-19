@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 import React from 'react'
 import Container from '@/components/container'
 import Link from 'next/link'
-import { MainNav } from '@/app/(routes)/menu/_components/main-nav'
+import { MainNav } from '@/components/main-nav'
 import { UserButton } from '@clerk/nextjs'
 
 interface HeaderProps {

@@ -1,6 +1,6 @@
 import getCategories from "@/actions/get-categories";
 import Container from "@/components/container";
-import { MenuContent } from "@/components/menu-content";
+import { MenuContent } from "@/app/(routes)/menu/_components/menu-content";
 import { FilterContainer, MenuSidebar } from "@/app/(routes)/menu/_components/filter-container";
 import { CategoryFilter } from "./_components/category-filter";
 import getSizes from "@/actions/get-sizes";
@@ -9,11 +9,12 @@ import { KitchenFilter } from "./_components/kitchen-filter";
 import { CuisineFilter } from "./_components/cuisine-filter";
 import getKitchens from "@/actions/get-kitchens";
 import getCuisines from "@/actions/get-cuisines";
+import getProducts from "@/actions/get-products";
 
 interface MenuPageProps {
     searchParams: {
         size?: string;
-        isFeatured?: string;
+        isFeatured?: boolean;
         cuisine?: string;
         category?: string;
         kitchen?: string;
@@ -28,6 +29,13 @@ const MenuPage = async (
     const sizes = await getSizes();
     const kitchens = await getKitchens();
     const cuisines = await getCuisines();
+    const products = await getProducts({
+        size: searchParams?.size,
+        isFeatured: searchParams?.isFeatured,
+        cuisine: searchParams?.cuisine,
+        category: searchParams?.category,
+        kitchen: searchParams?.kitchen
+    });
 
     return (
         <Container className="px-4 md:px-12">
@@ -41,9 +49,9 @@ const MenuPage = async (
                     </FilterContainer>
                 </div>
 
-                <MenuContent className="col-span-12 md:col-span-10 flex flex-col items-start justify-start w-full">
-                    sidear
-                </MenuContent>
+                <div className="col-span-12 md:col-span-10 flex flex-col gap-4 items-start justify-start w-full">
+                    <MenuContent products={products} />
+                </div>
             </div>
         </Container>
     )
