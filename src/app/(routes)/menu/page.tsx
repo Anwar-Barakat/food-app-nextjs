@@ -5,6 +5,10 @@ import { FilterContainer, MenuSidebar } from "@/app/(routes)/menu/_components/fi
 import { CategoryFilter } from "./_components/category-filter";
 import getSizes from "@/actions/get-sizes";
 import { SizeFilter } from "./_components/size-filter";
+import { KitchenFilter } from "./_components/kitchen-filter";
+import { CuisineFilter } from "./_components/cuisine-filter";
+import getKitchens from "@/actions/get-kitchens";
+import getCuisines from "@/actions/get-cuisines";
 
 interface MenuPageProps {
     searchParams: {
@@ -22,6 +26,8 @@ const MenuPage = async (
 
     const categories = await getCategories();
     const sizes = await getSizes();
+    const kitchens = await getKitchens();
+    const cuisines = await getCuisines();
 
     return (
         <Container className="px-4 md:px-12">
@@ -30,6 +36,8 @@ const MenuPage = async (
                     <FilterContainer>
                         <CategoryFilter categories={categories} />
                         <SizeFilter sizes={sizes} />
+                        <KitchenFilter kitchens={kitchens} />
+                        <CuisineFilter cuisines={cuisines} />
                     </FilterContainer>
                 </div>
 
