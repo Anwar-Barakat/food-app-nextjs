@@ -1,5 +1,6 @@
 "use client";
 
+import { ProductCard } from "@/components/cards/product-card";
 import { Product } from "@/models/product";
 import { ChevronRight, Home, X } from "lucide-react";
 import Link from "next/link";
@@ -23,7 +24,7 @@ export const MenuContent = (
       delete newParam[param];
       const href = queryString.stringifyUrl({
         url: `/menu`,
-        query: newParam 
+        query: newParam
       });
       router.push(href);
     }
@@ -68,6 +69,23 @@ export const MenuContent = (
             )
           }
         </div>
+      </div>
+
+      <div className="grid grid-cols-2 lg:grid-cols-3 w-full h-full gap-4 gap-y-32">
+        {
+          products.length > 0 ? (
+            <>
+              {
+                products.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))
+              }
+            </>) : (
+            <div className="flex items-center justify-center py-12 text-muted-foreground text-xl font-bold col-span-10">
+              No products found
+            </div>
+          )
+        }
       </div>
     </div>
   )
